@@ -1,0 +1,5 @@
+[requires]
+UmaPyogin/0.1
+
+[generators]
+cmake

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="config" type="moe.madoka.umapyogin_android.UmaPyoginConfig" />
+        <variable
+            name="listener"
+            type="moe.madoka.umapyogin_android.ConfigListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/SwitchEnablePlugin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:checked="@={config.enabled}"
+                    android:onCheckedChanged="@{(view, value) -> listener.onEnabledChanged(value)}"
+                    android:text="@string/EnablePlugin" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/SwitchUnlockFPS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:checked="@={config.unlockFPS}"
+                    android:onCheckedChanged="@{(view, value) -> listener.onUnlockFPSChanged(value)}"
+                    android:text="@string/UnlockFPS" />
+            </TableRow>
+
+        </TableLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

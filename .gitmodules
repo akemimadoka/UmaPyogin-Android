@@ -1,0 +1,12 @@
+[submodule "Nougat_dlfunctions"]
+	path = Nougat_dlfunctions
+	url = https://github.com/avs333/Nougat_dlfunctions.git
+[submodule "And64InlineHook"]
+	path = And64InlineHook
+	url = https://github.com/akemimadoka/And64InlineHook.git
+[submodule "Trainers-Legend-G-TRANS"]
+	path = Trainers-Legend-G-TRANS
+	url = https://github.com/MinamiChiwa/Trainers-Legend-G-TRANS.git
+[submodule "UmaPyogin"]
+	path = UmaPyogin
+	url = https://github.com/akemimadoka/UmaPyogin.git
