@@ -74,7 +74,7 @@ class UmaPyogin : IXposedHookLoadPackage, IXposedHookZygoteInit {
                                 } catch (e: IOException) {
                                     action("$basePath/$file", null)
                                     forAllAssetFiles("$basePath/$file", action)
-                                    return
+                                    continue
                                 }.use {
                                     action("$basePath/$file", it)
                                 }
