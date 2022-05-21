@@ -54,10 +54,21 @@ class UmaPyogin : IXposedHookLoadPackage, IXposedHookZygoteInit {
                         true
                     } else {
                         if (!versionFile.exists()) {
+                            umaPyoginFiles.delete()
+                            umaPyoginFiles.mkdirs()
                             versionFile.writeText(BuildConfig.VERSION_NAME)
                             true
                         } else {
-                            versionFile.readText() == BuildConfig.VERSION_NAME
+                            val versionText = versionFile.readText()
+                            Log.e(TAG, "versionFile recorded version as $versionText")
+                            if (versionText == BuildConfig.VERSION_NAME) {
+                                false
+                            } else {
+                                umaPyoginFiles.delete()
+                                umaPyoginFiles.mkdirs()
+                                versionFile.writeText(BuildConfig.VERSION_NAME)
+                                true
+                            }
                         }
                     }
 

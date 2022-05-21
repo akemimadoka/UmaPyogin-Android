@@ -61,8 +61,11 @@ Java_moe_madoka_umapyogin_1android_UmaPyogin_initHook(JNIEnv *env, jclass clazz,
     });
     plugin.LoadConfig(UmaPyogin::Config{
             .StaticLocalizationFilePath = basePathStr + "/static.json",
-            .HashLocalizationDirPath = basePathStr + "/hash_dicts",
             .StoryLocalizationDirPath = basePathStr + "/stories",
+            .TextDataDictPath = basePathStr + "/database/text_data.json",
+            .CharacterSystemTextDataDictPath = basePathStr + "/database/character_system_text.json",
+            .RaceJikkyoCommentDataDictPath = basePathStr + "/database/race_jikkyo_comment.json",
+            .RaceJikkyoMessageDataDictPath = basePathStr + "/database/race_jikkyo_message.json",
             .ExtraAssetBundlePath = basePathStr + "/resources/umamusumelocalify",
             .ReplaceFontPath = "assets/bundledassets/umamusumelocalify/fonts/MSYH.TTC",
             .OverrideFPS = unlock_fps ? 60 : 0,
