@@ -25,7 +25,7 @@ conan_cmake_run(
     CONANFILE conanfile.txt
     BASIC_SETUP CMAKE_TARGETS
     BUILD missing
-    PROFILE_AUTO ALL
+    PROFILE_AUTO all
     PROFILE android.profile
     OPTIONS android_ndk:NDKRootPath=${CMAKE_ANDROID_NDK}
 )

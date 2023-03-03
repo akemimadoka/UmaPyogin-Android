@@ -65,20 +65,22 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
 
+def translateDataDir = buildSC == "true" ? "Trainers-Legend-G-TRANS" : "Trainers-Legend-G-TRANS-zh-tw"
+
 task copyStoryLocalizedData(type: Copy) {
-    from("../Trainers-Legend-G-TRANS/localized_data/stories") {
+    from("../$translateDataDir/localized_data/stories") {
         include("**/*.json")
     }
     into "build/intermediates/umapyogin_extra_assets/UmaPyoginFiles/stories"
 }
 
 task copyStaticLocalizedData(type: Copy) {
-    from "../Trainers-Legend-G-TRANS/localized_data/static.json"
+    from "../$translateDataDir/localized_data/static.json"
     into "build/intermediates/umapyogin_extra_assets/UmaPyoginFiles"
 }
 
 task copyDatabaseLocalizedData(type: Copy) {
-    from("../Trainers-Legend-G-TRANS/localized_data") {
+    from("../$translateDataDir/localized_data") {
         include "text_data.json", "character_system_text.json", "race_jikkyo_comment.json", "race_jikkyo_message.json"
     }
     into "build/intermediates/umapyogin_extra_assets/UmaPyoginFiles/database"

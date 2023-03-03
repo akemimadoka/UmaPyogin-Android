@@ -10,3 +10,6 @@
 [submodule "UmaPyogin"]
 	path = UmaPyogin
 	url = https://github.com/akemimadoka/UmaPyogin.git
+[submodule "Trainers-Legend-G-TRANS-zh-tw"]
+	path = Trainers-Legend-G-TRANS-zh-tw
+	url = https://github.com/yotv2000tw/Trainers-Legend-G-TRANS-zh-tw.git
