@@ -1,0 +1,35 @@
+name: Android CI
+
+on: push
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: recursive
+    - name: set up android development environment
+      uses: android-actions/setup-android@v2
+
+    - name: checkout conan-android_ndk
+      uses: actions/checkout@v3
+      with:
+        repository: akemimadoka/conan-android_ndk
+        path: conan-android_ndk
+    - name: install dependencies
+      run: |
+        pip3 install --upgrade conan==1.59.0 requests
+        conan profile new default --detect
+        conan config init
+        conan export conan-android_ndk
+        conan config install conan-android_ndk/android.profile -tf profiles
+        sdkmanager --install "cmake;3.22.1"
+        echo "cmake.dir=/usr/local/lib/android/sdk/cmake/3.22.1" > local.properties
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+    - name: Build with Gradle
+      run: ./gradlew build

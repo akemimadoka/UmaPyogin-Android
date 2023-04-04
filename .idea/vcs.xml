@@ -5,6 +5,7 @@
     <mapping directory="$PROJECT_DIR$/And64InlineHook" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Nougat_dlfunctions" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Trainers-Legend-G-TRANS" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Trainers-Legend-G-TRANS-zh-tw" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/UmaPyogin" vcs="Git" />
   </component>
 </project>
