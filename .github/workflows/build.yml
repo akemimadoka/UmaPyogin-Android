@@ -1,0 +1,38 @@
+name: Android CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        cache: gradle
+
+    - name: checkout conan-android_ndk
+      uses: actions/checkout@v3
+      with:
+        repository: https://github.com/akemimadoka/conan-android_ndk.git
+        path: conan-android_ndk
+    - name: install dependencies
+      run: |
+        pip3 install --upgrade conan==1.59.0 requests
+        conan profile new default --detect
+        conan config init
+        conan export conan-android_ndk
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+    - name: Build with Gradle
+      run: ./gradlew build
